@@ -25,6 +25,7 @@ interface CoreModule {
     companion object {
 
         @Provides
+        @Singleton
         fun provideNoteDatabase(
             context: Context
         ): NoteDatabase {

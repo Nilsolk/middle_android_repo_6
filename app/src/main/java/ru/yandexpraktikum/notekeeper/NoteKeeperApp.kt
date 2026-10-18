@@ -1,14 +1,14 @@
 package ru.yandexpraktikum.notekeeper
 
 import android.app.Application
-import ru.yandexpraktikum.notekeeper.di.AppComponent
-import ru.yandexpraktikum.notekeeper.di.DaggerAppComponent
+import ru.yandexpraktikum.notekeeper.di.ApplicationComponent
+import ru.yandexpraktikum.notekeeper.di.DaggerApplicationComponent
 
 class NoteKeeperApp: Application() {
-    lateinit var appComponent: AppComponent
+    lateinit var applicationComponent: ApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.factory().create(this)
+        applicationComponent = DaggerApplicationComponent.factory().create(this)
     }
 }
