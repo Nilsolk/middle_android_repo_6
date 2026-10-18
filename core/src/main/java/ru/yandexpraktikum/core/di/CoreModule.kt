@@ -5,6 +5,9 @@ import androidx.room.Room
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import ru.yandexpraktikum.core.data.db.NoteDao
 import ru.yandexpraktikum.core.data.db.NoteDatabase
 import ru.yandexpraktikum.core.data.repository.NotesRepositoryImpl
@@ -14,6 +17,7 @@ import javax.inject.Singleton
 private const val DATABASE_NAME = "note_database"
 
 @Module
+@InstallIn(SingletonComponent::class)
 interface CoreModule {
 
     @Binds
@@ -27,10 +31,10 @@ interface CoreModule {
         @Provides
         @Singleton
         fun provideNoteDatabase(
-            context: Context
+            @ApplicationContext context: Context
         ): NoteDatabase {
             return Room.databaseBuilder(
-                context.applicationContext,
+                context,
                 NoteDatabase::class.java,
                 DATABASE_NAME
             ).build()
