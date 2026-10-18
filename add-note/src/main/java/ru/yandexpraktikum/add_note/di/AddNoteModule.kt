@@ -23,7 +23,7 @@ interface AddNoteModule {
 )
 interface AddNoteComponent {
 
-    fun getAddNoteViewModelFactory(): AddNoteViewModelFactory
+    fun addNoteViewModelFactory(): AddNoteViewModelFactory
 
     @Component.Factory
     interface Factory {

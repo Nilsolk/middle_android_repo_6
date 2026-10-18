@@ -29,7 +29,7 @@ interface AllNotesModule {
 )
 interface AllNotesComponent {
 
-    fun getAllNotesViewModelFactory(): AllNotesViewModelFactory
+    fun allNotesViewModelFactory(): AllNotesViewModelFactory
 
     @Component.Factory
     interface Factory {

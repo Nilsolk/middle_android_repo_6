@@ -10,8 +10,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.rememberNavController
-import ru.yandexpraktikum.notekeeper.presentation.navigation.NoteKeeperNavHost
 import ru.yandexpraktikum.core_ui.presentation.theme.NoteKeeperTheme
+import ru.yandexpraktikum.notekeeper.presentation.navigation.NoteKeeperNavHost
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +24,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    val container = (LocalContext.current.applicationContext as NoteKeeperApp).container
+                    val appComponent = (LocalContext.current.applicationContext as NoteKeeperApp).appComponent
                     NoteKeeperNavHost(
-                        appContainer = container,
+                        appComponent = appComponent,
                         navController = navController
                     )
                 }
